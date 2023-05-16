@@ -17,13 +17,23 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float movementSpeed = 10.0f;
     [SerializeField] private float rotationSpeed = 0.5f;
 
+    [SerializeField] private float zoomChange;
+    [SerializeField] private float smoothChange;
+    [SerializeField] private float minSize, maxSize;
+
+    private Camera cam;
+
     #endregion
 
     private void Awake()
     {
         _xRotation = transform.rotation.eulerAngles.x;
+        cam = GetComponent<Camera>();
     }
-
+    private void Update()
+    {
+        ZoomControl();
+    }
     public void OnLook(InputAction.CallbackContext context)
     {
         _delta = context.ReadValue<Vector2>();
@@ -87,5 +97,19 @@ public class CameraManager : MonoBehaviour
         };
 
         return new Vector3(_xRotation, endValue, 0.0f);
+    }
+
+    private void ZoomControl()
+    {
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            cam.orthographicSize -= zoomChange * Time.deltaTime * smoothChange;
+        }
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            cam.orthographicSize += zoomChange * Time.deltaTime * smoothChange;
+        }
+
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minSize, maxSize);
     }
 }
