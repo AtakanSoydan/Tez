@@ -9,7 +9,19 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Opening Door");
-        return true;
+        var inventory = interactor.GetComponent<Inventory>();
+
+        if (inventory == null) return false;
+
+        if (inventory.HasKey)
+        {
+            Debug.Log("Opening Door");
+            inventory.HasKey = false;
+            return true;
+        }
+
+        Debug.Log("No Key Found");
+        return false;
+   
     }
 }
