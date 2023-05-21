@@ -91,9 +91,7 @@ public class CameraManager : MonoBehaviour
         endValue = currentY switch
         {
             >= 0 and <= 90 => 45.0f,
-            >= 91 and <= 180 => 135.0f,
-            >= 181 and <= 270 => 225.0f,
-            _ => 315.0f
+            _ => 225.0f
         };
 
         return new Vector3(_xRotation, endValue, 0.0f);
@@ -112,4 +110,6 @@ public class CameraManager : MonoBehaviour
 
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minSize, maxSize);
     }
+
 }
+
