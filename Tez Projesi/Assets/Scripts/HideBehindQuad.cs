@@ -5,11 +5,15 @@ public class HideBehindQuad : MonoBehaviour
     public GameObject quadObject;
     private Renderer cubeRenderer;
     public float targetAngle = 225f;
-    private float angleThreshold = 15f;
+    private float angleThreshold = 40f;
 
+    private BoxCollider _boxCollider;
+
+    
     private void Start()
     {
         cubeRenderer = GetComponent<Renderer>();
+        _boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -30,6 +34,20 @@ public class HideBehindQuad : MonoBehaviour
 
             // Fark, açý eþik deðerinden küçük olduðunda cubeRenderer aktif hale gelir, aksi halde devre dýþý kalýr
             cubeRenderer.enabled = angleDifference <= angleThreshold;
+
+            if (cubeRenderer.enabled)
+            {
+                _boxCollider.enabled = true;
+                var x = gameObject.transform.GetChild(0).gameObject;
+                x.SetActive(true);
+
+            }
+            else
+            {
+                _boxCollider.enabled = false;
+                var x = gameObject.transform.GetChild(0).gameObject;
+                x.SetActive(false);
+            }
 
             //// Hedef açý ile kameranýn y eksenindeki açýsýný karþýlaþtýrýr
             //if (Mathf.Approximately(cameraYAngle, targetAngle))
