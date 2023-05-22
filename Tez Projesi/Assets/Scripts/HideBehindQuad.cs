@@ -6,9 +6,7 @@ public class HideBehindQuad : MonoBehaviour
     private Renderer cubeRenderer;
     public float targetAngle = 225f;
     private float angleThreshold = 40f;
-
     private BoxCollider _boxCollider;
-
     
     private void Start()
     {
@@ -23,15 +21,11 @@ public class HideBehindQuad : MonoBehaviour
             Quaternion cameraRotation = Camera.main.transform.rotation;
             float cameraYAngle = cameraRotation.eulerAngles.y;
             // "Quad" objesinin arkasýnda yer alan "Cube" objesinin pozisyonunu alýn
-            Vector3 cubePosition = transform.position;
-            Debug.Log(cubePosition);
+            Vector3 cubePosition = transform.position;      
             // "Quad" objesinin pozisyonunu alýn
-            Vector3 quadPosition = quadObject.transform.position;
-            Debug.Log(quadPosition);
-
+            Vector3 quadPosition = quadObject.transform.position;           
             // Hedef açý ile kameranýn y eksenindeki açýsý arasýndaki farký hesaplar
             float angleDifference = Mathf.Abs(cameraYAngle - targetAngle);
-
             // Fark, açý eþik deðerinden küçük olduðunda cubeRenderer aktif hale gelir, aksi halde devre dýþý kalýr
             cubeRenderer.enabled = angleDifference <= angleThreshold;
 
@@ -40,7 +34,6 @@ public class HideBehindQuad : MonoBehaviour
                 _boxCollider.enabled = true;
                 var x = gameObject.transform.GetChild(0).gameObject;
                 x.SetActive(true);
-
             }
             else
             {
@@ -48,24 +41,6 @@ public class HideBehindQuad : MonoBehaviour
                 var x = gameObject.transform.GetChild(0).gameObject;
                 x.SetActive(false);
             }
-
-            //// Hedef açý ile kameranýn y eksenindeki açýsýný karþýlaþtýrýr
-            //if (Mathf.Approximately(cameraYAngle, targetAngle))
-            //{
-            //    Debug.Log("Kamera y ekseninde hedef açýya sahip.");
-            //    Debug.Log(Vector3.Dot(quadPosition - cubePosition, transform.forward));
-            //    // "Cube" objesinin "Quad" objesinin önünde mi arkasýnda mý olduðunu kontrol et
-            //    bool isBehindQuad = Vector3.Dot(quadPosition - cubePosition, transform.forward) > 0;
-            //    // "Cube" objesinin görünürlüðünü ayarla
-            //    cubeRenderer.enabled = !isBehindQuad;
-            //}
-            //else
-            //{
-            //    Debug.Log("Kamera y ekseninde hedef açýya sahip deðil.");
-            //    Debug.Log(Vector3.Dot(quadPosition - cubePosition, quadObject.transform.forward));               
-            //    bool isBehindQuad = Vector3.Dot(quadPosition - cubePosition, quadObject.transform.forward) > 0;
-            //    cubeRenderer.enabled = !isBehindQuad;
-            //}
         }
     }
 }
