@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     private Camera camera;
 
     private string groundTag = "Ground";
+    private string collectedTag = "Collected";
 
     private NavMeshAgent agent;
 
@@ -27,7 +28,7 @@ public class Movement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                if (hit.collider.CompareTag(groundTag)) 
+                if (hit.collider.CompareTag(groundTag) || hit.collider.CompareTag(collectedTag)) 
                 {
                     agent.SetDestination(hit.point);
                 }

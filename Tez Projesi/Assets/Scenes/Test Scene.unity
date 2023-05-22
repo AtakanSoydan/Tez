@@ -3371,7 +3371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bilgi Al
+  m_text: "Bilgi Almak i\xE7in \"F\" Bas"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
   m_sharedMaterial: {fileID: -6483183725845918950, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -3398,7 +3398,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.35
+  m_fontSize: 10
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3910,6 +3910,10 @@ PrefabInstance:
     - target: {fileID: 949340582744459874, guid: bc5259a5c16be9840b2ee338ee117f22, type: 3}
       propertyPath: m_Name
       value: Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 949340582744459874, guid: bc5259a5c16be9840b2ee338ee117f22, type: 3}
+      propertyPath: m_TagString
+      value: Collected
       objectReference: {fileID: 0}
     - target: {fileID: 949340582744459875, guid: bc5259a5c16be9840b2ee338ee117f22, type: 3}
       propertyPath: m_RootOrder
