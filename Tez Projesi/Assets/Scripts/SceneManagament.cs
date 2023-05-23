@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagament : MonoBehaviour
 {
     private int _compLevel = GameData.completedLevel;
+    private bool isPaused = false;
     [SerializeField] private GameObject _object;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,19 @@ public class SceneManagament : MonoBehaviour
 
     public void MainMenu()
     {
-        Time.timeScale = 0.0f;
-        _object.SetActive(true);
+        isPaused = !isPaused;
+        
+        if (isPaused)
+        {
+            Time.timeScale = 0.0f;
+            _object.SetActive(true);
+
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            _object.SetActive(false);
+        }
+        
     }
 }
