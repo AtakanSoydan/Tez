@@ -8,18 +8,10 @@ public class SceneManagament : MonoBehaviour
     private int _compLevel = GameData.completedLevel;
     private bool isPaused = false;
     [SerializeField] private GameObject _object;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         NextLevel();
-        RestartLevel();
-        //MainMenu();
     }
 
     private void NextLevel()
@@ -31,14 +23,13 @@ public class SceneManagament : MonoBehaviour
             SceneManager.LoadScene(_compLevel);
         }
     }
-    private void RestartLevel()
+    public void RestartLevel()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Level Completed Count: " + _compLevel);
-            SceneManager.LoadScene(_compLevel);
-        }
+        Debug.Log("Level Completed Count: " + _compLevel);
+        SceneManager.LoadScene(_compLevel);
+        Time.timeScale = 1.0f;
     }
+
 
     public void MainMenu()
     {
@@ -54,7 +45,6 @@ public class SceneManagament : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             _object.SetActive(false);
-        }
-        
+        }        
     }
 }
