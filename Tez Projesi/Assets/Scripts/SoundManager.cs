@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,13 +7,17 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager Instance;
     [SerializeField] Image soundOnIcon;
     [SerializeField] Image soundOffIcon;
     [SerializeField] Image musicOnIcon;
     [SerializeField] Image musicOffIcon;
+    public Sound[] musicSounds, sfxSounds;
+    [SerializeField] AudioSource musicSource, audioSource;
 
     private bool soundMuted = false;
     private bool musicMuted = false;
+
     private void Start()
     {
         if (!PlayerPrefs.HasKey("musicmuted"))
@@ -29,22 +34,52 @@ public class SoundManager : MonoBehaviour
         {
             Load();
         }
+
+        if (musicMuted == false)
+        {
+            PlayMusic("Theme");
+        }
         UpdateButtonIcon();
-        AudioListener.pause = musicMuted;
-        AudioListener.pause = soundMuted;
+    }
+    public void PlayMusic(string name)
+    {
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if(s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            musicSource.clip = s.clip;
+            musicSource.Play();
+        }
     }
 
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            audioSource.PlayOneShot(s.clip);
+        }
+    }
     public void OnPressSoundButton()
     {
         if(soundMuted == false)
         {
             soundMuted = true;
-            AudioListener.pause = true;
+            audioSource.mute = true;
         }
         else
         {
             soundMuted = false;
-            AudioListener.pause = false;
+            audioSource.mute = false;
         }
         UpdateButtonIcon();
         Save();
@@ -55,12 +90,12 @@ public class SoundManager : MonoBehaviour
         if (musicMuted == false)
         {
             musicMuted = true;
-            AudioListener.pause = true;
+            musicSource.mute = true;
         }
         else
         {
             musicMuted = false;
-            AudioListener.pause = false;
+            musicSource.mute = false;
         }
         UpdateButtonIcon();
         Save();
@@ -94,6 +129,10 @@ public class SoundManager : MonoBehaviour
     {
         soundMuted = PlayerPrefs.GetInt("soundmuted") == 1;
         musicMuted = PlayerPrefs.GetInt("musicmuted") == 1;
+        if(musicMuted == false)
+        {
+            musicSource.Play();
+        }
     }
 
     private void Save()

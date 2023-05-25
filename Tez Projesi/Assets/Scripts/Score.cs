@@ -32,7 +32,7 @@ public class Score : MonoBehaviour
 
             gameObject.tag = "Collected";
 
-            if (GameData.collectedInfo == 3)
+            if (GameData.collectedInfo == 4)
             {
                 testButtonActivation.SetActive(true);
             }
