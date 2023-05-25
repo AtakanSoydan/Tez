@@ -3,28 +3,23 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField]
-    private Camera camera;
+    [SerializeField] private Camera _camera;
 
     private string groundTag = "Ground";
     private string collectedTag = "Collected";
-
     private NavMeshAgent agent;
-
     private RaycastHit hit;
 
-    // Called when a script is enabled
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Called once every frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
