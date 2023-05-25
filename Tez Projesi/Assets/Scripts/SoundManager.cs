@@ -39,6 +39,11 @@ public class SoundManager : MonoBehaviour
         {
             PlayMusic("Theme");
         }
+        else if (musicMuted == true)
+        {
+            PlayMusic("Theme");
+            musicSource.mute = true;
+        }
         UpdateButtonIcon();
     }
     public void PlayMusic(string name)
