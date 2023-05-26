@@ -14,6 +14,11 @@ public class SceneManagament : MonoBehaviour
         NextLevel();
     }
 
+    public void LoadTestScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     private void NextLevel()
     {
         if(Input.GetKeyDown(KeyCode.E)) 

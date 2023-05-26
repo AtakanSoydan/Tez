@@ -12,4 +12,7 @@ public class GameData : MonoBehaviour
     public static int necessaryScore = 100;
     // Tamamlanan level sayýsýnýn tutulmasý için...
     public static int completedLevel = 0;
+    // Test için...
+    public static bool isFailed;
+
 }
