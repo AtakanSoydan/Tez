@@ -1,16 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class QuizManager : MonoBehaviour
 {
-    public List<QuestionAndAnswers> QnA;
-    public GameObject[] options;
+    [Header("Data")]
+    public TextAsset textAssetData;
     public int currentQuestion;
 
+    [Header("Objects")]
+    public GameObject[] options;
     public GameObject QuizPanel;
     public GameObject GameOverPanel;
  
@@ -20,10 +24,18 @@ public class QuizManager : MonoBehaviour
     private int totalQuestions = 0;
     public int score;
 
+    [Serializable]
+    public class QuestionLists
+    {
+        public List<QuestionAndAnswers> questions;
+    }
+    [Header("Questions and Answers")]
+    public QuestionLists questionLists = new QuestionLists();
+
     private void Start()
     {
-        totalQuestions = QnA.Count;
         GameOverPanel.SetActive(false);
+        ReadQuestions();
         GenerateQuestion();
     }
 
@@ -45,14 +57,14 @@ public class QuizManager : MonoBehaviour
     {
         // when your answer is right
         score += 1;
-        QnA.RemoveAt(currentQuestion);
+        questionLists.questions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
 
     public void Wrong()
     {
         // when your answer is wrong
-        QnA.RemoveAt(currentQuestion);
+        questionLists.questions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
 
@@ -69,9 +81,9 @@ public class QuizManager : MonoBehaviour
         {
             options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().StartColor;
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(1).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i];
+            options[i].transform.GetChild(1).GetComponent<TMP_Text>().text = questionLists.questions[currentQuestion].Answers[i];
 
-            if (QnA[currentQuestion].CorrectAnswer == i+1)
+            if (questionLists.questions[currentQuestion].CorrectAnswer == i+1)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
@@ -80,11 +92,11 @@ public class QuizManager : MonoBehaviour
 
     void GenerateQuestion()
     {
-        if (QnA.Count > 0 )
+        if (questionLists.questions.Count() > 0 )
         {
-            currentQuestion = Random.Range(0, QnA.Count);
+            currentQuestion = UnityEngine.Random.Range(0, questionLists.questions.Count);
 
-            QuestionText.text = QnA[currentQuestion].Question;
+            QuestionText.text = questionLists.questions[currentQuestion].Question;
             SetAnswers();
         }
         else
@@ -94,5 +106,32 @@ public class QuizManager : MonoBehaviour
         }
              
 
+    }
+
+    void ReadQuestions()
+    {
+        string[] data = textAssetData.text.Split(new string[] { ";", "\n" }, StringSplitOptions.None);
+
+        int tableSize = data.Length / 6 - 1;
+        
+        questionLists.questions = new List<QuestionAndAnswers>();
+        for (int i = 0; i < tableSize; i++)
+        {
+
+            questionLists.questions.Add(new QuestionAndAnswers()
+            {
+                Question = data[6 * (i + 1)],
+                Answers = new string[4]
+                {
+                    data[6 * (i + 1) + 1],
+                    data[6 * (i + 1) + 2], 
+                    data[6 * (i + 1) + 3], 
+                    data[6 * (i + 1) + 4]  
+                },
+                CorrectAnswer = int.Parse(data[6 * (i + 1) + 5])
+            });
+        }
+
+        totalQuestions = questionLists.questions.Count();
     }
 }
