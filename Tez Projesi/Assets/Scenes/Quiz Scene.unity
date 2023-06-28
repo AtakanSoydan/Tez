@@ -893,6 +893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1841210484}
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &614061597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,6 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1841210484}
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1384598720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,6 +1936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1841210484}
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1633125617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,28 +2284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d492e560de04224992097affbac2ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
-  - Question: 2+2 = ?
-    Answers:
-    - 2
-    - 4
-    - 22
-    - 5
-    CorrectAnswer: 2
-  - Question: 10/2 = ?
-    Answers:
-    - 5
-    - 8
-    - 6
-    - 0
-    CorrectAnswer: 1
-  - Question: 5x5 = ?
-    Answers:
-    - 15
-    - 10
-    - 45
-    - 25
-    CorrectAnswer: 4
+  textAssetData: {fileID: 4900000, guid: 000edc06855e4584bbfea1f1f14100a9, type: 3}
+  QnA: []
   options:
   - {fileID: 2143181690}
   - {fileID: 1384598714}
@@ -2314,6 +2297,8 @@ MonoBehaviour:
   QuestionText: {fileID: 397683373}
   ScoreText: {fileID: 36050135}
   score: 0
+  questionLists:
+    questions: []
 --- !u!1 &2043814551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,6 +2585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 1841210484}
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2143181696
 MonoBehaviour:
   m_ObjectHideFlags: 0
