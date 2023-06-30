@@ -43,4 +43,12 @@ public class Score : MonoBehaviour
         }
         
     }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            takenInfo = false;
+        }
+    }
 }
