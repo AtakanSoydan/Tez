@@ -8,7 +8,7 @@ public class AnswerScript : MonoBehaviour
     public bool isCorrect = false;
     public QuizManager quizManager;
 
-    public Color StartColor;
+    //public Color StartColor;
     public Sprite StartSprite;
     public Sprite Red;
     public Sprite Green;
