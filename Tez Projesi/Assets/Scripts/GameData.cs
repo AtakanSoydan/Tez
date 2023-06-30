@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+
+[Serializable]
+public class GameData
 {
     // Oyundaki ipucularý sayýsal olarak tutulmasý için...
     public static int totalInfo = 7;
