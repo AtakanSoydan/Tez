@@ -17,11 +17,10 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public GameObject QuizPanel;
     public GameObject GameOverPanel;
- 
+
     public TMP_Text QuestionText;
     public TMP_Text ScoreText;
 
-    private int totalQuestions = 0;
     public int score;
 
     [Serializable]
@@ -29,13 +28,17 @@ public class QuizManager : MonoBehaviour
     {
         public List<QuestionAndAnswers> questions;
     }
+
     [Header("Questions and Answers")]
     public QuestionLists questionLists = new QuestionLists();
+    private List<QuestionAndAnswers> selectedQuestions = new List<QuestionAndAnswers>();
+    private int maxQuestions = 5; // Maximum number of questions to select from the CSV file
 
     private void Start()
     {
         GameOverPanel.SetActive(false);
         ReadQuestions();
+        SelectRandomQuestions();
         GenerateQuestion();
     }
 
@@ -49,22 +52,21 @@ public class QuizManager : MonoBehaviour
         QuizPanel.SetActive(false);
         GameOverPanel.SetActive(true);
 
-        ScoreText.text = score + "/" + totalQuestions;
-
+        ScoreText.text = score + "/" + maxQuestions;
     }
 
     public void Correct()
     {
         // when your answer is right
         score += 1;
-        questionLists.questions.RemoveAt(currentQuestion);
+        selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
 
     public void Wrong()
     {
         // when your answer is wrong
-        questionLists.questions.RemoveAt(currentQuestion);
+        selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
 
@@ -74,16 +76,15 @@ public class QuizManager : MonoBehaviour
         GenerateQuestion();
     }
 
-
     void SetAnswers()
     {
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().StartColor;
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(1).GetComponent<TMP_Text>().text = questionLists.questions[currentQuestion].Answers[i];
+            options[i].transform.GetChild(1).GetComponent<TMP_Text>().text = selectedQuestions[currentQuestion].Answers[i];
 
-            if (questionLists.questions[currentQuestion].CorrectAnswer == i+1)
+            if (selectedQuestions[currentQuestion].CorrectAnswer == i + 1)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
             }
@@ -92,11 +93,11 @@ public class QuizManager : MonoBehaviour
 
     void GenerateQuestion()
     {
-        if (questionLists.questions.Count() > 0 )
+        if (selectedQuestions.Count() > 0)
         {
-            currentQuestion = UnityEngine.Random.Range(0, questionLists.questions.Count);
+            currentQuestion = UnityEngine.Random.Range(0, selectedQuestions.Count);
 
-            QuestionText.text = questionLists.questions[currentQuestion].Question;
+            QuestionText.text = selectedQuestions[currentQuestion].Question;
             SetAnswers();
         }
         else
@@ -104,8 +105,6 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Out of Questions");
             GameOver();
         }
-             
-
     }
 
     void ReadQuestions()
@@ -113,25 +112,37 @@ public class QuizManager : MonoBehaviour
         string[] data = textAssetData.text.Split(new string[] { ";", "\n" }, StringSplitOptions.None);
 
         int tableSize = data.Length / 6 - 1;
-        
+
         questionLists.questions = new List<QuestionAndAnswers>();
         for (int i = 0; i < tableSize; i++)
         {
-
             questionLists.questions.Add(new QuestionAndAnswers()
             {
                 Question = data[6 * (i + 1)],
                 Answers = new string[4]
                 {
                     data[6 * (i + 1) + 1],
-                    data[6 * (i + 1) + 2], 
-                    data[6 * (i + 1) + 3], 
-                    data[6 * (i + 1) + 4]  
+                    data[6 * (i + 1) + 2],
+                    data[6 * (i + 1) + 3],
+                    data[6 * (i + 1) + 4]
                 },
                 CorrectAnswer = int.Parse(data[6 * (i + 1) + 5])
             });
         }
 
-        totalQuestions = questionLists.questions.Count();
+    }
+
+    void SelectRandomQuestions()
+    {
+        if (questionLists.questions.Count <= maxQuestions)
+        {
+            // If the number of available questions is less than or equal to the maximum number of questions required, use all the available questions
+            selectedQuestions = questionLists.questions;
+        }
+        else
+        {
+            // Randomly select maxQuestions number of questions from the available questions
+            selectedQuestions = questionLists.questions.OrderBy(q => Guid.NewGuid()).Take(maxQuestions).ToList();
+        }
     }
 }
