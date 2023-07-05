@@ -7439,6 +7439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 825829004411121252, guid: 50017eebbb61434468180948dfffc995, type: 3}
+      propertyPath: m_Acceleration
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6259461846855462567, guid: 50017eebbb61434468180948dfffc995, type: 3}
       propertyPath: m_Name
       value: Boy Character
