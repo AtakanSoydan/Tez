@@ -168,14 +168,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018c9043e4bc3ae499e1fc896d6c8104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 104
   newLayerName: Wall
   newLayerName2: Default
-  walls:
+  walls_225f:
   - {fileID: 8853280132461012614}
   - {fileID: 5358121990097840957}
   - {fileID: 8096546141755200264}
   - {fileID: 6370440640718151543}
+  walls_45f:
+  - {fileID: 5864230687612666642}
+  - {fileID: 2077953574}
+  - {fileID: 2975410992102082818}
+  - {fileID: 8087144342698561799}
 --- !u!114 &7916254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1144,6 @@ GameObject:
   - component: {fileID: 4688263855632937351}
   - component: {fileID: 8556791696892034594}
   - component: {fileID: 5862318920430652136}
-  - component: {fileID: 8556791696892034595}
   - component: {fileID: 8556791696892034596}
   m_Layer: 0
   m_Name: wall
@@ -1526,18 +1529,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358121990097840957}
   m_Mesh: {fileID: -6281424698479989189, guid: 8e7f8e4b5e5389a4f8e8926f564cd1fb, type: 3}
---- !u!114 &8556791696892034595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358121990097840957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9d4c95c9e22ae748ac2ab609015d7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &8556791696892034596
 BoxCollider:
   m_ObjectHideFlags: 0
