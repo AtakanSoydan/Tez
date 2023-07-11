@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 
     private Animator anim;
 
-    [SerializeField] private float stoppingDistance = 1.5f; // Yaklaþma mesafesi
+    [SerializeField] private float stoppingDistance = 2.5f; // Yaklaþma mesafesi
 
     private void Awake()
     {

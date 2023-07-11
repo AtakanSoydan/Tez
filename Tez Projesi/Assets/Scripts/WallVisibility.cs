@@ -6,6 +6,7 @@ public class WallVisibility : MonoBehaviour
     public string newLayerName2 = "Default";
 
     private bool isVisible = true;
+    private bool isActive = true;
 
     public GameObject[] walls_225f;
     public GameObject[] walls_45f;
@@ -36,23 +37,26 @@ public class WallVisibility : MonoBehaviour
 
             if (angleDifference <= angleThreshold)
             {
-                SetWallVisibility(wall, true, newLayer);
+                SetWallVisibility(wall, true, newLayer, true);
             }
             else
             {
-                SetWallVisibility(wall, false, defaultLayer);
+                SetWallVisibility(wall, false, defaultLayer, false);
             }
         }
     }
 
-    private void SetWallVisibility(GameObject wall, bool isVisible, string layerName)
+    private void SetWallVisibility(GameObject wall, bool isVisible, string layerName, bool isActive)
     {
         wall.gameObject.layer = LayerMask.NameToLayer(layerName);
+        wall.gameObject.SetActive(isActive);
+        this.isActive = isActive;
         this.isVisible = isVisible;
     }
 
     private void ToggleVisibility()
     {
         isVisible = !isVisible;
+        isActive = !isActive;
     }
 }
