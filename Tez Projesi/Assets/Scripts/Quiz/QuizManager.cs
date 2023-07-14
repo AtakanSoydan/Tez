@@ -50,8 +50,11 @@ public class QuizManager : MonoBehaviour
     private void GameOver()
     {
         QuizPanel.SetActive(false);
-        GameOverPanel.SetActive(true);
-
+        if(score < 3)
+        {
+            GameOverPanel.SetActive(true);
+        }
+        ScoreTimer.isTimeRunning = false;
         ScoreText.text = score + "/" + maxQuestions;
     }
 
@@ -59,6 +62,7 @@ public class QuizManager : MonoBehaviour
     {
         // when your answer is right
         score += 1;
+        GameData.levelScore += 100;
         selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
@@ -66,6 +70,7 @@ public class QuizManager : MonoBehaviour
     public void Wrong()
     {
         // when your answer is wrong
+        GameData.levelScore -= 50;
         selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
