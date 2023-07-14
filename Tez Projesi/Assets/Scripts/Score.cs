@@ -26,6 +26,7 @@ public class Score : MonoBehaviour
             
             Debug.Log("collected info arttýrýlmadan önce: " + GameData.collectedInfo);
             GameData.collectedInfo++;
+            GameData.levelScore += 75;
             infoScoreText.text = GameData.collectedInfo.ToString();
             progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
             Debug.Log("collected info arttýrýldýktan sonra: " + GameData.collectedInfo);
@@ -35,6 +36,11 @@ public class Score : MonoBehaviour
             if (GameData.collectedInfo == 4)
             {
                 testButtonActivation.SetActive(true);
+            }
+
+            if (GameData.collectedInfo == 7)
+            {
+                GameData.levelScore += 100;
             }
         }
         else

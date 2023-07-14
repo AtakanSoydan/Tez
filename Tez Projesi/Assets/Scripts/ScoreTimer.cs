@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreTimer : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class ScoreTimer : MonoBehaviour
     private int scorePenalty = 5;
     private float penaltyCounter = 0f;
     private float penaltyThread = 15f;
-
+    public int targetScene = 1;
+    int currentScene;
     private void Start()
     {
         isTimeRunning = true;
+        currentScene = SceneManager.GetActiveScene().buildIndex;  
     }
 
     private void Update()
@@ -26,10 +29,13 @@ public class ScoreTimer : MonoBehaviour
                 DisplayTime(currentTime);
                 //Her 15 saniyede bir score azalsýn...
                 penaltyCounter += Time.deltaTime;
-                if (penaltyCounter >= penaltyThread)
+                if (targetScene == currentScene)
                 {
-                    CalculatePenaltyScore();
-                    penaltyCounter = 0f;
+                    if (penaltyCounter >= penaltyThread)
+                    {
+                        CalculatePenaltyScore();
+                        penaltyCounter = 0f;
+                    }
                 }
                 Debug.Log("Level Score: " + GameData.levelScore);
             }

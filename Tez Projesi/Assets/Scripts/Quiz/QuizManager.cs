@@ -17,6 +17,7 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public GameObject QuizPanel;
     public GameObject GameOverPanel;
+    public GameObject LevelCompletedPanel;
 
     public TMP_Text QuestionText;
     public TMP_Text ScoreText;
@@ -37,6 +38,7 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         GameOverPanel.SetActive(false);
+        LevelCompletedPanel.SetActive(false);
         ReadQuestions();
         SelectRandomQuestions();
         GenerateQuestion();
@@ -53,6 +55,10 @@ public class QuizManager : MonoBehaviour
         if(score < 3)
         {
             GameOverPanel.SetActive(true);
+        }
+        else
+        {
+            LevelCompletedPanel.SetActive(true);
         }
         ScoreTimer.isTimeRunning = false;
         ScoreText.text = score + "/" + maxQuestions;
