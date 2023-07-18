@@ -18,8 +18,6 @@ public class Score : MonoBehaviour
             takenInfo = true;
         }
     }
-
-
     private void Update()
     {
         if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && this.collectedInfo < GameData.totalInfo )
