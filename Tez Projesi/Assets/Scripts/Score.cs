@@ -5,12 +5,12 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
+    private int collectedInfo = 0;
     [SerializeField] private TMP_Text infoScoreText;
     [SerializeField] private GameObject progressBarGreen;
     [SerializeField] private GameObject testButtonActivation;
 
     private bool takenInfo = false;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -19,33 +19,34 @@ public class Score : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
-        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && GameData.collectedInfo < GameData.totalInfo )
+        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && this.collectedInfo < GameData.totalInfo )
         {
             
-            Debug.Log("collected info arttýrýlmadan önce: " + GameData.collectedInfo);
-            GameData.collectedInfo++;
+            Debug.Log("collected info arttýrýlmadan önce: " + collectedInfo);
+            this.collectedInfo++;
             GameData.levelScore += 75;
-            infoScoreText.text = GameData.collectedInfo.ToString();
-            progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
-            Debug.Log("collected info arttýrýldýktan sonra: " + GameData.collectedInfo);
+            infoScoreText.text = this.collectedInfo.ToString();
+            progressBarGreen.transform.GetChild(this.collectedInfo - 1).gameObject.SetActive(true);
+            Debug.Log("collected info arttýrýldýktan sonra: " + collectedInfo);
 
             gameObject.tag = "Collected";
 
-            if (GameData.collectedInfo == 4)
+            if (this.collectedInfo == 4)
             {
                 testButtonActivation.SetActive(true);
             }
 
-            if (GameData.collectedInfo == 7)
+            if (this.collectedInfo == 7)
             {
                 GameData.levelScore += 100;
             }
         }
         else
         {
-            Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
+            Debug.Log("Toplanan tüm info: " + this.collectedInfo);
         }
         
     }
@@ -57,4 +58,6 @@ public class Score : MonoBehaviour
             takenInfo = false;
         }
     }
+
+    
 }

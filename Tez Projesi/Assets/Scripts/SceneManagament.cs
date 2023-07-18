@@ -31,7 +31,7 @@ public class SceneManagament : MonoBehaviour
     {
         Debug.Log("Level Completed Count: " + _compLevel);
         SceneManager.LoadScene(_compLevel);
-        GameData.collectedInfo = 0;
+        //GameData.collectedInfo = 0;
         GameData.levelScore = 0;
         Time.timeScale = 1.0f;
     }
