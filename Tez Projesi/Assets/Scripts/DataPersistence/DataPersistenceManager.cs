@@ -45,7 +45,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.LoadData(gameData);
         }
 
-        Debug.Log("Loaded info count: " + gameData.collectedInfo);
+       // Debug.Log("Loaded info count: " + gameData.collectedInfo);
     }
     public void SaveGame()
     {
@@ -54,7 +54,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(ref gameData);
         }
 
-        Debug.Log("Saved info count: " + gameData.collectedInfo);
+      //  Debug.Log("Saved info count: " + gameData.collectedInfo);
     }
 
     private void OnApplicationQuit()
