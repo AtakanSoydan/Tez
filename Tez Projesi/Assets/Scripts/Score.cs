@@ -20,31 +20,30 @@ public class Score : MonoBehaviour
     }
     private void Update()
     {
-        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && this.collectedInfo < GameData.totalInfo )
+        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && collectedInfo < 7)
         {
-            
             Debug.Log("collected info arttýrýlmadan önce: " + collectedInfo);
-            this.collectedInfo++;
-            GameData.levelScore += 75;
-            infoScoreText.text = this.collectedInfo.ToString();
-            progressBarGreen.transform.GetChild(this.collectedInfo - 1).gameObject.SetActive(true);
+            collectedInfo++;
+            //GameData.levelScore += 75;
+            infoScoreText.text = collectedInfo.ToString();
+            progressBarGreen.transform.GetChild(collectedInfo - 1).gameObject.SetActive(true);
             Debug.Log("collected info arttýrýldýktan sonra: " + collectedInfo);
 
             gameObject.tag = "Collected";
 
-            if (this.collectedInfo == 4)
+            if (collectedInfo == 4)
             {
                 testButtonActivation.SetActive(true);
             }
 
-            if (this.collectedInfo == 7)
+            if (collectedInfo == 7)
             {
-                GameData.levelScore += 100;
+                //GameData.levelScore += 100;
             }
         }
         else
         {
-            Debug.Log("Toplanan tüm info: " + this.collectedInfo);
+            Debug.Log("Toplanan tüm info: " + collectedInfo);
         }
         
     }
