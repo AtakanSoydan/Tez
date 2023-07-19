@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Score : MonoBehaviour
+public class Score : MonoBehaviour, IDataPersistence
 {
-    private int collectedInfo = 0;
     [SerializeField] private TMP_Text infoScoreText;
     [SerializeField] private GameObject progressBarGreen;
     [SerializeField] private GameObject testButtonActivation;
@@ -20,30 +19,31 @@ public class Score : MonoBehaviour
     }
     private void Update()
     {
-        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && collectedInfo < 7)
+        if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && GameData.collectedInfo < 7)
         {
-            Debug.Log("collected info arttýrýlmadan önce: " + collectedInfo);
-            collectedInfo++;
-            //GameData.levelScore += 75;
-            infoScoreText.text = collectedInfo.ToString();
-            progressBarGreen.transform.GetChild(collectedInfo - 1).gameObject.SetActive(true);
-            Debug.Log("collected info arttýrýldýktan sonra: " + collectedInfo);
+            Debug.Log("collected info arttýrýlmadan önce: " + GameData.collectedInfo);
+            GameData.collectedInfo++;
+            GameData.levelScore += 75;
+            Debug.Log("Local Score: " + GameData.levelScore);
+            infoScoreText.text = GameData.collectedInfo.ToString();
+            progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
+            Debug.Log("collected info arttýrýldýktan sonra: " + GameData.collectedInfo);
 
             gameObject.tag = "Collected";
-
-            if (collectedInfo == 4)
+            
+            if (GameData.collectedInfo == 4)
             {
                 testButtonActivation.SetActive(true);
             }
 
-            if (collectedInfo == 7)
+            if (GameData.collectedInfo == 7)
             {
                 //GameData.levelScore += 100;
             }
         }
         else
         {
-            Debug.Log("Toplanan tüm info: " + collectedInfo);
+            Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
         }
         
     }
@@ -56,5 +56,13 @@ public class Score : MonoBehaviour
         }
     }
 
-    
+    public void LoadData(GameData gameData)
+    {
+        GameData.collectedInfo = gameData.collectedInfo2;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.collectedInfo2  = GameData.collectedInfo;
+    }
 }

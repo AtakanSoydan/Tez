@@ -37,7 +37,7 @@ public class ScoreTimer : MonoBehaviour
                         penaltyCounter = 0f;
                     }
                 }
-                Debug.Log("Level Score: " + GameData.levelScore);
+                Debug.Log("Level Score: ");//GameData.levelScore);
             }
         }
     }

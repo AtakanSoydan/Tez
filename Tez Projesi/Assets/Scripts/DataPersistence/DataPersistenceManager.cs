@@ -6,9 +6,13 @@ using UnityEngine;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
+
     private GameData gameData;
     public static DataPersistenceManager instance { get; private set; }
     private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
 
     private void Awake()
     {
@@ -21,6 +25,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath,fileName);
         this.dataPersistenceObjects = FindAllPersistencesObjects();
         LoadGame();
     }
@@ -33,7 +38,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        // TO-DO Load any saved data from a file using the data handler
+        // Load any saved data from a file using the data handler..
+        this.gameData = dataHandler.Load();
+
+        // If no data can be loaded, initialize to new game
         if(this.gameData == null)
         {
             Debug.Log("No data was found! Initializing data to defults");
@@ -45,7 +53,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.LoadData(gameData);
         }
 
-       // Debug.Log("Loaded info count: " + gameData.collectedInfo);
+        Debug.Log("Loaded info count: " + gameData.collectedInfo2);
     }
     public void SaveGame()
     {
@@ -54,7 +62,10 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(ref gameData);
         }
 
-      //  Debug.Log("Saved info count: " + gameData.collectedInfo);
+        Debug.Log("Saved info count: " + gameData.collectedInfo2);
+
+        // Save game data to a file using data handler...
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()
