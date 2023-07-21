@@ -19,10 +19,14 @@ public class GameData
     public static int completedLevel = 0;
     // Test için...
     public static bool isFailed;
+    // Karakter konumu
+    public Vector3 playerPosition;
+    
 
     public GameData() 
     {
         collectedInfo2 = 0;
         levelScore2 = 0;
+        playerPosition = Vector3.zero;
     }
 }

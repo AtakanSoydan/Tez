@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private Camera _camera;
 
@@ -15,6 +15,16 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float stoppingDistance = 2.5f; // Yaklaþma mesafesi
 
+    public void LoadData(GameData gameData)
+    {
+        this.transform.position = gameData.playerPosition;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.playerPosition = this.transform.position;
+    }
+
     private void Awake()
     {
         anim = GetComponent<Animator>();  // caching animator
@@ -22,6 +32,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(Application.persistentDataPath);
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = stoppingDistance; // Yaklaþma mesafesini ayarla
     }

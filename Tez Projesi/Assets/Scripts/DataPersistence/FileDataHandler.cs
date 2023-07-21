@@ -16,6 +16,12 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
+    public FileDataHandler(string dataFileName)
+    {
+        this.dataDirPath = "D://SaveGameData";
+        this.dataFileName = dataFileName;
+    }
+
     public GameData Load()
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
@@ -50,7 +56,7 @@ public class FileDataHandler
         try
         {
             // Create directory the file will be written to if it doesn't already exist..
-            Directory.CreateDirectory(fullPath);
+            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             // Serialize the C# game data object into JSON.
             string dataToStore = JsonUtility.ToJson(data,true);
             // Write to serilized data to the file.
@@ -64,7 +70,7 @@ public class FileDataHandler
         }
         catch (Exception e)
         {
-            Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);            
+            Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
     }
 }
