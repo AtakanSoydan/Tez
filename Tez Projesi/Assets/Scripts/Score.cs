@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,14 @@ public class Score : MonoBehaviour, IDataPersistence
     [SerializeField] private TMP_Text infoScoreText;
     [SerializeField] private GameObject progressBarGreen;
     [SerializeField] private GameObject testButtonActivation;
+    private string tagName;
+
+    [SerializeField] private string objectID;
+    [ContextMenu("Generate Object ID")]
+    private void GenerateObjectID()
+    {
+        objectID = UnityEngine.Random.Range(0, 100).ToString();
+    }
 
     private bool takenInfo = false;
     private void OnTriggerEnter(Collider other)
@@ -16,6 +25,14 @@ public class Score : MonoBehaviour, IDataPersistence
         {
             takenInfo = true;
         }
+    }
+
+    private void Start()
+    {
+        // Define loaded data...
+        gameObject.tag = tagName;
+        infoScoreText.text = GameData.collectedInfo.ToString();
+        progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
     }
     private void Update()
     {
@@ -29,7 +46,8 @@ public class Score : MonoBehaviour, IDataPersistence
             progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
             Debug.Log("collected info arttýrýldýktan sonra: " + GameData.collectedInfo);
 
-            gameObject.tag = "Collected";
+            tagName = "Collected";
+            gameObject.tag = tagName;
             
             if (GameData.collectedInfo == 4)
             {
@@ -38,7 +56,7 @@ public class Score : MonoBehaviour, IDataPersistence
 
             if (GameData.collectedInfo == 7)
             {
-                //GameData.levelScore += 100;
+                GameData.levelScore += 100;
             }
         }
         else
@@ -59,10 +77,15 @@ public class Score : MonoBehaviour, IDataPersistence
     public void LoadData(GameData gameData)
     {
         GameData.collectedInfo = gameData.collectedInfo2;
+        GameData.levelScore = gameData.levelScore2;
+        this.tagName = gameData.objectTag;
+        
     }
 
     public void SaveData(ref GameData gameData)
     {
         gameData.collectedInfo2  = GameData.collectedInfo;
+        gameData.objectTag = this.tagName;
+        gameData.levelScore2 = GameData.levelScore;
     }
 }
