@@ -37,7 +37,7 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        GameOverPanel.SetActive(false);
+        //GameOverPanel.SetActive(false);
         LevelCompletedPanel.SetActive(false);
         ReadQuestions();
         SelectRandomQuestions();
