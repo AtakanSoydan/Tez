@@ -21,10 +21,8 @@ public class GameData
     public static bool isFailed;
     // Karakter konumu
     public Vector3 playerPosition;
-    // Objelerin etiketlerinin tutulduðu yer..
-    public string objectTag;
     // Collected data 'tag'leri için bir dictionary oluþturuyoruz..
-    public Dictionary<string, bool> collectedInfos;
+    public SerializableDictionary<string, string> collectedInfos;
     
 
     public GameData() 
@@ -32,7 +30,6 @@ public class GameData
         collectedInfo2 = 0;
         levelScore2 = 0;
         playerPosition = Vector3.zero;
-        objectTag = "Ground";
-        collectedInfos = new Dictionary<string, bool>();
+        collectedInfos = new SerializableDictionary<string, string>();
     }
 }

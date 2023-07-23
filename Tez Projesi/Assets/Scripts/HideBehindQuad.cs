@@ -31,15 +31,21 @@ public class HideBehindQuad : MonoBehaviour
 
             if (cubeRenderer.enabled)
             {
+                for (int i = 0; i < gameObject.transform.childCount; i++)
+                {
+                    var x = gameObject.transform.GetChild(i).gameObject;
+                    x.SetActive(true);
+                }
                 _boxCollider.enabled = true;
-                var x = gameObject.transform.GetChild(0).gameObject;
-                x.SetActive(true);
             }
             else
             {
+                for (int i = 0; i < gameObject.transform.childCount; i++)
+                {
+                    var x = gameObject.transform.GetChild(i).gameObject;
+                    x.SetActive(false);
+                }
                 _boxCollider.enabled = false;
-                var x = gameObject.transform.GetChild(0).gameObject;
-                x.SetActive(false);
             }
         }
     }

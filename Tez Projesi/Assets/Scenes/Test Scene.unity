@@ -138,6 +138,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &196644144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4405,6 +4407,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965790704403902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,6 +4436,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965790722836856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4459,6 +4465,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965790848712122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4486,6 +4494,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965791040621399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4513,6 +4523,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965792333984496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4540,6 +4552,8 @@ MonoBehaviour:
   infoScoreText: {fileID: 295417573}
   progressBarGreen: {fileID: 295734044}
   testButtonActivation: {fileID: 543157014}
+  tagName: 
+  objectID: 
 --- !u!114 &2714965792400473909
 MonoBehaviour:
   m_ObjectHideFlags: 0
