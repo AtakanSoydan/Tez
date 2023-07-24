@@ -794,7 +794,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1580834973}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: OnPressContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1199,7 +1199,7 @@ RectTransform:
   - {fileID: 243848022}
   - {fileID: 1205283181}
   m_Father: {fileID: 870690310}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1274,9 +1274,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1244910552}
   - {fileID: 774162296}
   - {fileID: 927519439}
-  - {fileID: 1244910552}
   m_Father: {fileID: 2094586868}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1768,7 +1768,7 @@ RectTransform:
   - {fileID: 358058324}
   - {fileID: 149869681}
   m_Father: {fileID: 870690310}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2372,7 +2372,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1580834973}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: OnPressNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2587,12 +2587,12 @@ RectTransform:
   m_Children:
   - {fileID: 875599638}
   m_Father: {fileID: 870690310}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 22, y: -47.99994}
-  m_SizeDelta: {x: 1377.2297, y: 490.3215}
+  m_SizeDelta: {x: 1377.2297, y: 451.5247}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1244910553
 MonoBehaviour:
@@ -3017,6 +3017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c90933cf088994591a43e6c3758406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButton: {fileID: 1153301923}
+  continueGameButton: {fileID: 367929900}
 --- !u!4 &1580834974
 Transform:
   m_ObjectHideFlags: 0
@@ -3284,6 +3286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataPersistenceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3455201725886404567, guid: eeaaf7cf8beb34243addeca536de03b0, type: 3}
+      propertyPath: fileName
+      value: Game4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeaaf7cf8beb34243addeca536de03b0, type: 3}
 --- !u!1 &2030051550
@@ -3499,7 +3505,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2094586868
 RectTransform:

@@ -14,6 +14,7 @@ public class SkipIntroScene : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
 
+        DataPersistenceManager.instance.NewGame();
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

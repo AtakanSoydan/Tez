@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 22397de8dca73644dbf1f07ba118c9a7
   - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: 3752f3cf88665b4488bfa8da0a70050c
+  - enabled: 1
     path: "Assets/Scenes/1. B\xF6l\xFCm.unity"
     guid: 6d6fd23bc11018a47bf997567a55a09e
   - enabled: 1
     path: Assets/Scenes/Quiz Scene.unity
     guid: 8e8519834cbdf5c40968762188747302
-  - enabled: 1
-    path: Assets/Scenes/Cinematic.unity
-    guid: 3752f3cf88665b4488bfa8da0a70050c
   m_configObjects: {}

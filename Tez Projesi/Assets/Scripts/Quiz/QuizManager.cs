@@ -23,6 +23,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     public TMP_Text[] InfoText;
 
     private int score;
+    public static int gainedScore; 
     private int timeNow;
     string timeText;
 
@@ -79,6 +80,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     {
         // when your answer is right
         score += 1;
+        gainedScore += 100;
         GameData.levelScore += 100;
         selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
@@ -87,6 +89,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     public void Wrong()
     {
         // when your answer is wrong
+        gainedScore -= 50;
         GameData.levelScore -= 50;
         selectedQuestions.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
