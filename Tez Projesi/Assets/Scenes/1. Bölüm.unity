@@ -3433,10 +3433,10 @@ MonoBehaviour:
   m_text: 'Homozygosity is the condition where both genes forming the trait are the
     same (AA or aa).
 
-    
 
-    Heterozygosity is the condition where one gene
-    forming the trait is dominant (A) and the other is recessive (a) (Aa).'
+
+    Heterozygosity is the condition where one gene forming
+    the trait is dominant (A) and the other is recessive (a) (Aa).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
   m_sharedMaterial: {fileID: -6483183725845918950, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -5846,12 +5846,12 @@ MonoBehaviour:
   m_text: 'If both the mother and the father contribute a recessive gene (k), the
     child will have blue eyes (kk).
 
-    
 
-    When the genes forming the trait
-    are in a heterozygous condition, there is no need to use the term "dominant."
-    Similarly, when describing an individual with a recessive phenotype, there is
-    no need to use the term "homozygous."'
+
+    When the genes forming the trait are in
+    a heterozygous condition, there is no need to use the term "dominant." Similarly,
+    when describing an individual with a recessive phenotype, there is no need to
+    use the term "homozygous."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
   m_sharedMaterial: {fileID: -6483183725845918950, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -9656,11 +9656,11 @@ MonoBehaviour:
     this characteristic, there are no issues in blood transfusions considering this
     factor, and the segregation ratio is always 1:2:1.
 
-    
 
-    In codominant
-    characters, there is no need for test crosses since there are no heterozygous
-    individuals (MN is not heterozygous).'
+
+    In codominant characters,
+    there is no need for test crosses since there are no heterozygous individuals
+    (MN is not heterozygous).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
   m_sharedMaterial: {fileID: -6483183725845918950, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -10017,10 +10017,10 @@ MonoBehaviour:
   m_text: 'Genetics is the scientific field that studies the formation, biochemical
     structure, and mode of transmission of these traits.
 
-    
 
-    A gene is a
-    specific sequence of nucleotides that make up the DNA molecule.'
+
+    A gene is a specific
+    sequence of nucleotides that make up the DNA molecule.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
   m_sharedMaterial: {fileID: -6483183725845918950, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -11857,7 +11857,7 @@ MonoBehaviour:
   m_text: 'If a gene pair representing a character consists of similar genes (homozygous)
     (AA), the result will be one type of gamete (A) representing that character.
 
-    
+
 
     If
     a gene pair consists of different genes (heterozygous) (Aa), the result will
@@ -18876,7 +18876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22107,7 +22107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22838,7 +22838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24919,7 +24919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29157,7 +29157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32489,7 +32489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33249,10 +33249,10 @@ MonoBehaviour:
     genes, one inherited from each parent, that determine the same trait, which are
     called alleles.
 
-    
 
-    The entirety of genes an organism possesses and
-    can pass on to future generations is called genotype.
+
+    The entirety of genes an organism possesses and can pass
+    on to future generations is called genotype.
 
 
     The outward manifestation
@@ -40897,10 +40897,10 @@ MonoBehaviour:
   m_text: 'Dominant gene is the one that more frequently expresses the same trait
     and is represented by a capital letter (A).
 
-    
 
-    Recessive gene is the
-    one that less frequently expresses the same trait and is represented by a lowercase
+
+    Recessive gene is the one
+    that less frequently expresses the same trait and is represented by a lowercase
     letter (a).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1373d4f0d6374e4408021116fe8053f4, type: 2}
@@ -44900,12 +44900,12 @@ MonoBehaviour:
     characters, even if they are on the same chromosome, are not located at corresponding
     loci.
 
-    
 
-    Genes carried on the same chromosome are called linked genes,
-    while genes carried on different chromosomes are referred to as independent genes.
 
-    
+    Genes carried on the same chromosome are called linked genes, while
+    genes carried on different chromosomes are referred to as independent genes.
+
+
 
     In
     a cell where all genes are independent, the number of chromosomes is equal to
@@ -48652,7 +48652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df06d5d6ae74bf14c92e9119ab2e3cd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68d13eaa4ca93ac48bca37a14e0354fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
