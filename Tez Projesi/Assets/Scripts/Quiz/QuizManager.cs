@@ -48,6 +48,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     private void Update()
     {
         timeNow = (int)ScoreTimer.currentTime;
+        Debug.Log("Score: " + GameData.levelScore);
     }
 
     public void Retry()

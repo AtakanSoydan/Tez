@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -21,17 +22,33 @@ public class DataPersistenceManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             Debug.LogError("Found more than one Data Persistence Manager in scene");
         }
+        this.dataHandler = new FileDataHandler(fileName);
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        this.dataHandler = new FileDataHandler(fileName);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         this.dataPersistenceObjects = FindAllPersistencesObjects();
         LoadGame();
     }
 
+    public void OnSceneUnloaded(Scene scene)
+    {
+        SaveGame();
+    }
 
     public void NewGame()
     {
@@ -55,7 +72,6 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.LoadData(gameData);
         }
 
-        Debug.Log("Loaded info count: " + gameData.collectedInfo2);
     }
     public void SaveGame()
     {
@@ -63,8 +79,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
-
-        Debug.Log("Saved info count: " + gameData.collectedInfo2);
 
         // Save game data to a file using data handler...
         dataHandler.Save(gameData);

@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void OnPressNewGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        DataPersistenceManager.instance.NewGame();
+
+        SceneManager.LoadSceneAsync("1. Bölüm");
+    }
+
+    public void OnPressContinueGame()
+    {
+        SceneManager.LoadSceneAsync("1. Bölüm");
     }
 
     public void QuitGame()

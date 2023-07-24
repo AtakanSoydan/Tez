@@ -36,6 +36,10 @@ public class Score : MonoBehaviour, IDataPersistence
         }
         gameObject.tag = tagName;
         infoScoreText.text = GameData.collectedInfo.ToString();
+        if (GameData.collectedInfo == 4)
+        {
+            testButtonActivation.SetActive(true);
+        }
         for (int i = 0; i < GameData.collectedInfo; i++)
         {
             progressBarGreen.transform.GetChild(i).gameObject.SetActive(true);

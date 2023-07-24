@@ -15,7 +15,7 @@ public class SceneManagament : MonoBehaviour
     }
 
     public void LoadTestScene()
-    {
+    { 
         SceneManager.LoadScene(2);
     }
 
@@ -71,4 +71,11 @@ public class SceneManagament : MonoBehaviour
             }
         }
     }
+
+    public void BackToMainScene()
+    {
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadScene(0);
+    }
+
 }

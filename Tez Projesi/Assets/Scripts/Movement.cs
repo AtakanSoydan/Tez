@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private Camera _camera;
 
+    private GameObject _gameObject;
     private string groundTag = "Ground";
     private string collectedTag = "Collected";
     private NavMeshAgent agent;
@@ -15,19 +17,10 @@ public class Movement : MonoBehaviour, IDataPersistence
 
     [SerializeField] private float stoppingDistance = 2.5f; // Yaklaþma mesafesi
 
-    public void LoadData(GameData gameData)
-    {
-        this.transform.position = gameData.playerPosition;
-    }
-
-    public void SaveData(ref GameData gameData)
-    {
-        gameData.playerPosition = this.transform.position;
-    }
-
     private void Awake()
     {
         anim = GetComponent<Animator>();  // caching animator
+        _gameObject = this.gameObject;
     }
 
     void Start()
@@ -70,5 +63,22 @@ public class Movement : MonoBehaviour, IDataPersistence
             transform.LookAt(lookAtTarget);
             anim.SetBool("Aim", false);
         }
+    }
+    public void LoadData(GameData gameData)
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            this.transform.position = gameData.playerPosition;
+        }
+        else{ return;}
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            this.transform.position = gameData.playerPosition;
+        }
+        else{ return;}
     }
 }
