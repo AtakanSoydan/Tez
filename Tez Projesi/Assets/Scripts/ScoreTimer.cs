@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreTimer : MonoBehaviour
 {
     public TextMeshProUGUI timer;
-    private float currentTime = 0f;
+    public static float currentTime = 0f;
     public static bool isTimeRunning;
     private int scorePenalty = 5;
     private float penaltyCounter = 0f;
@@ -37,7 +37,6 @@ public class ScoreTimer : MonoBehaviour
                         penaltyCounter = 0f;
                     }
                 }
-                Debug.Log("Level Score: ");//GameData.levelScore);
             }
         }
     }

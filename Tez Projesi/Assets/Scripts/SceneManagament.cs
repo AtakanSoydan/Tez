@@ -16,7 +16,7 @@ public class SceneManagament : MonoBehaviour
 
     public void LoadTestScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     private void NextLevel()

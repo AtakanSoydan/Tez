@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512da85e335d0c479598a7283cd3a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Atakan
+  fileName: Game 3
 --- !u!1 &351892377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5799,7 @@ GameObject:
   - component: {fileID: 1794349635475034731}
   - component: {fileID: 3407277587655318990}
   - component: {fileID: 625406200636811524}
+  - component: {fileID: 3407277587655318991}
   m_Layer: 0
   m_Name: trashcan
   m_TagString: Ground
@@ -10199,6 +10200,7 @@ GameObject:
   - component: {fileID: 1568332926389851096}
   - component: {fileID: 3613893739066746642}
   - component: {fileID: 3613893739066746643}
+  - component: {fileID: 3613893739066746644}
   m_Layer: 0
   m_Name: kitchenFridge
   m_TagString: Ground
@@ -10770,6 +10772,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417824436104923345}
   m_Mesh: {fileID: -3618036406861190523, guid: 7c7cce89e625eb14cb5015d0a7fdcd39, type: 3}
+--- !u!114 &3407277587655318991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417824436104923345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!1 &3426183960000362422
 GameObject:
   m_ObjectHideFlags: 0
@@ -11546,6 +11562,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.300001, y: 9.2, z: 2.6193397}
   m_Center: {x: 2.1500006, y: 4.6, z: 1.5096699}
+--- !u!114 &3613893739066746644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965582169876678343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!1 &3619965020648449453
 GameObject:
   m_ObjectHideFlags: 0
@@ -11979,6 +12009,7 @@ GameObject:
   - component: {fileID: 1095701164849649634}
   - component: {fileID: 2940922225127629608}
   - component: {fileID: 4078974774483048520}
+  - component: {fileID: 4078974774483048521}
   m_Layer: 0
   m_Name: chairDesk
   m_TagString: Ground
@@ -12516,6 +12547,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8759954, y: 6.007988, z: 3.0802956}
   m_Center: {x: 1.6747501, y: 3.003994, z: 1.7555057}
+--- !u!114 &4078974774483048521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733692305373594365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!1 &4082936626545927488
 GameObject:
   m_ObjectHideFlags: 0
@@ -14855,6 +14900,7 @@ GameObject:
   - component: {fileID: 8559167599201330209}
   - component: {fileID: 5849246676853543147}
   - component: {fileID: 8559167599201330210}
+  - component: {fileID: 8559167599201330211}
   m_Layer: 0
   m_Name: sideTableDrawers
   m_TagString: Untagged
@@ -14927,6 +14973,7 @@ GameObject:
   - component: {fileID: 5875233319817928151}
   - component: {fileID: 8533743889509099807}
   - component: {fileID: 8533743889509099806}
+  - component: {fileID: 8533743889509099808}
   m_Layer: 0
   m_Name: deskCorner
   m_TagString: Ground
@@ -15705,6 +15752,7 @@ GameObject:
   - component: {fileID: 6532164373758151765}
   - component: {fileID: 7856867610554401776}
   - component: {fileID: 5399187304026666810}
+  - component: {fileID: 7856867610554401777}
   m_Layer: 0
   m_Name: radio
   m_TagString: Ground
@@ -23458,6 +23506,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5903436598554482415}
   m_Mesh: {fileID: -1850120232344490714, guid: bd93f296339bbb24294fb0b587e6cdac, type: 3}
+--- !u!114 &7856867610554401777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903436598554482415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!1 &7870587536411761844
 GameObject:
   m_ObjectHideFlags: 0
@@ -24564,6 +24626,7 @@ GameObject:
   - component: {fileID: 5329578867358596111}
   - component: {fileID: 7931543696347400389}
   - component: {fileID: 9104497423754556331}
+  - component: {fileID: 9104497423754556332}
   m_Layer: 0
   m_Name: coatRack
   m_TagString: Ground
@@ -24824,6 +24887,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.786171, y: 3.844075, z: 9.744755}
   m_Center: {x: 7.8516827, y: 1.9220375, z: 4.8723774}
+--- !u!114 &8533743889509099808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371098785292680194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!4 &8537295720338316978
 Transform:
   m_ObjectHideFlags: 0
@@ -24876,6 +24953,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.344756, y: 3.844075, z: 2.2000003}
   m_Center: {x: 2.5723782, y: 1.9220375, z: 1.0000001}
+--- !u!114 &8559167599201330211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344733361104679230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 45
 --- !u!1 &8596966086291744640
 GameObject:
   m_ObjectHideFlags: 0
@@ -25983,6 +26074,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8240732501849174438, guid: 2b2446937133b744e882375efebf2f42, type: 3}
+--- !u!114 &9104497423754556332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8435941974701844752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b8ccd0b6d3fc4daf9db3b2874a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quadObject: {fileID: 1588964675}
+  targetAngle: 225
 --- !u!4 &9134104412783788828
 Transform:
   m_ObjectHideFlags: 0
@@ -26057,8 +26162,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.984529, y: 0.7881535, z: 2.3111234}
-  m_Center: {x: -0.007735491, y: -0.105923235, z: -0.46594596}
+  m_Size: {x: 1.6599741, y: 0.7881535, z: 1.6743379}
+  m_Center: {x: 0.013222933, y: -0.105923235, z: -0.1475532}
 --- !u!1 &9181013724439051954
 GameObject:
   m_ObjectHideFlags: 0

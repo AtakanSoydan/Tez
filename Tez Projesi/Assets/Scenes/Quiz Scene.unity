@@ -3452,7 +3452,7 @@ GameObject:
   - component: {fileID: 1468583799}
   - component: {fileID: 1468583798}
   m_Layer: 5
-  m_Name: Infos
+  m_Name: Infos_Comp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4536,11 +4536,12 @@ MonoBehaviour:
   - {fileID: 1633125611}
   - {fileID: 614061591}
   QuizPanel: {fileID: 1822410097}
-  GameOverPanel: {fileID: 0}
+  GameOverPanel: {fileID: 1159894265}
   LevelCompletedPanel: {fileID: 139361971}
   QuestionText: {fileID: 397683373}
-  ScoreText: {fileID: 0}
-  score: 0
+  InfoText:
+  - {fileID: 1468583798}
+  - {fileID: 1994204868}
   questionLists:
     questions: []
 --- !u!114 &1841210485
@@ -4663,7 +4664,7 @@ GameObject:
   - component: {fileID: 1994204869}
   - component: {fileID: 1994204868}
   m_Layer: 5
-  m_Name: Infos
+  m_Name: Infos_Fail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

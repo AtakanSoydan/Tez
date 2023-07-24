@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class QuizManager : MonoBehaviour
+public class QuizManager : MonoBehaviour, IDataPersistence
 {
     [Header("Data")]
     public TextAsset textAssetData;
@@ -20,9 +20,11 @@ public class QuizManager : MonoBehaviour
     public GameObject LevelCompletedPanel;
 
     public TMP_Text QuestionText;
-    public TMP_Text ScoreText;
+    public TMP_Text[] InfoText;
 
-    public int score;
+    private int score;
+    private int timeNow;
+    string timeText;
 
     [Serializable]
     public class QuestionLists
@@ -43,6 +45,10 @@ public class QuizManager : MonoBehaviour
         SelectRandomQuestions();
         GenerateQuestion();
     }
+    private void Update()
+    {
+        timeNow = (int)ScoreTimer.currentTime;
+    }
 
     public void Retry()
     {
@@ -61,7 +67,11 @@ public class QuizManager : MonoBehaviour
             LevelCompletedPanel.SetActive(true);
         }
         ScoreTimer.isTimeRunning = false;
-        ScoreText.text = score + "/" + maxQuestions;
+        for (int i = 0; i < InfoText.Length; i++)
+        {
+            InfoText[i].text = "Level Score: " + GameData.levelScore.ToString() + "\n"
+                + "Time: " + DisplayTime(ScoreTimer.currentTime);
+        }
     }
 
     public void Correct()
@@ -155,5 +165,22 @@ public class QuizManager : MonoBehaviour
             // Randomly select maxQuestions number of questions from the available questions
             selectedQuestions = questionLists.questions.OrderBy(q => Guid.NewGuid()).Take(maxQuestions).ToList();
         }
+    }
+
+    private string DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        return timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        GameData.levelScore = gameData.levelScore2;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.levelScore2 = GameData.levelScore;
     }
 }
