@@ -9,7 +9,7 @@ public class GameData
 {
     // Oyundaki ipucularý sayýsal olarak tutulmasý için...
     public static int totalInfo = 7;
-    public static int collectedInfo;
+    public static int collectedInfo = 0;
     public int collectedInfo2;
     // Oyundaki skorun sayýsal olarak tutulmasý için...
     public static int levelScore = 0;

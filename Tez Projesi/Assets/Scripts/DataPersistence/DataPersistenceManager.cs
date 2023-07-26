@@ -28,6 +28,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+
         this.dataHandler = new FileDataHandler(fileName);
         
     }

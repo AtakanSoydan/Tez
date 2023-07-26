@@ -19,6 +19,10 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     public GameObject GameOverPanel;
     public GameObject LevelCompletedPanel;
 
+    [Header("Reward Section")]
+    public Image[] medals;
+    public Sprite gold, silver, bronze, grey;
+
     public TMP_Text QuestionText;
     public TMP_Text[] InfoText;
 
@@ -68,6 +72,17 @@ public class QuizManager : MonoBehaviour, IDataPersistence
         {
             LevelCompletedPanel.SetActive(true);
         }
+        if(LevelCompletedPanel.activeSelf) 
+        {
+            if(GameData.levelScore < 300) 
+            {
+                for (int i = 0; i < medals.Length; i++)
+                {
+                    medals[i].sprite = grey;
+                }
+            }
+        }
+
         ScoreTimer.isTimeRunning = false;
         for (int i = 0; i < InfoText.Length; i++)
         {

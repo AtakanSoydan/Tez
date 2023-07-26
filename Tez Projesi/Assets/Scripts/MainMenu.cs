@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public void OnPressNewGame()
     {
         DisableMenuButtons();
+        DataPersistenceManager.instance.NewGame();
         SceneManager.LoadSceneAsync("1. Bölüm");
     }
 

@@ -3286,10 +3286,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataPersistenceManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3455201725886404567, guid: eeaaf7cf8beb34243addeca536de03b0, type: 3}
-      propertyPath: fileName
-      value: Game4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeaaf7cf8beb34243addeca536de03b0, type: 3}
 --- !u!1 &2030051550

@@ -4642,6 +4642,14 @@ MonoBehaviour:
   QuizPanel: {fileID: 1822410097}
   GameOverPanel: {fileID: 1159894265}
   LevelCompletedPanel: {fileID: 139361971}
+  medals:
+  - {fileID: 606837914}
+  - {fileID: 1207924845}
+  - {fileID: 393713954}
+  gold: {fileID: 21300000, guid: 5a621f4283345b54d95e7e2bd2519fc6, type: 3}
+  silver: {fileID: 21300000, guid: 25e51ac6183642f4a9dafe96cf0f2bd7, type: 3}
+  bronze: {fileID: 21300000, guid: 77138cad4dd99ce4a926972b01f4919c, type: 3}
+  grey: {fileID: 21300000, guid: a5482e84261efdd4e87fcfde5f91b36e, type: 3}
   QuestionText: {fileID: 397683373}
   InfoText:
   - {fileID: 1468583798}
