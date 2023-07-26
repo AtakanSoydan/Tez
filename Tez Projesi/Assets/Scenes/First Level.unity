@@ -2987,7 +2987,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 2027790839}
-  targetScene: 1
+  scorePenalty: 10
+  penaltyThread: 60
+  targetScenes: 0200000003000000
 --- !u!4 &322949085
 Transform:
   m_ObjectHideFlags: 0
@@ -8255,6 +8257,8 @@ MonoBehaviour:
   smoothChange: 5
   minSize: 7
   maxSize: 25
+  followSpeed: 3
+  player: {fileID: 6743511308347834435}
 --- !u!1 &943473729
 GameObject:
   m_ObjectHideFlags: 0

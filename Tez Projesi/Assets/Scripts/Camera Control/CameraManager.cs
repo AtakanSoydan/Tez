@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
 
     private float _xRotation;
 
+    [Header("Camera Settings")]
     [SerializeField] private float movementSpeed = 10.0f;
     [SerializeField] private float rotationSpeed = 0.5f;
 
@@ -21,6 +22,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float smoothChange;
     [SerializeField] private float minSize, maxSize;
 
+    [SerializeField] private float followSpeed = 3f;
+    [SerializeField] private Transform player;
     private Camera cam;
 
     #endregion
@@ -71,6 +74,8 @@ public class CameraManager : MonoBehaviour
             transform.Rotate(new Vector3(_xRotation, _delta.x * rotationSpeed, 0.0f));
             transform.rotation = Quaternion.Euler(_xRotation, transform.rotation.eulerAngles.y, 0.0f);
         }
+
+        FollowPlayer();
     }
 
     private void SnapRotation()
@@ -111,5 +116,23 @@ public class CameraManager : MonoBehaviour
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minSize, maxSize);
     }
 
+
+    private void FollowPlayer()
+    {
+        if (player == null)
+        {
+            Debug.LogWarning("No target assigned to the FollowCamera! Assign a target in the Inspector.");
+            return;
+        }
+
+        // Hedef pozisyonunu al
+        Vector3 targetPosition = player.position;
+
+        // Yalnýzca x ve z eksenlerini kullanarak karakterin konumunu belirle
+        Vector3 desiredPosition = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
+
+        // Kamerayý yavaþça karakterin konumuna taþý
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
+    }
 }
 
