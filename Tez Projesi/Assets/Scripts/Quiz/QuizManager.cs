@@ -23,9 +23,11 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     public Image[] medals;
     public Sprite gold, silver, bronze, grey;
 
+    [Header("Texts")]
     public TMP_Text QuestionText;
     public TMP_Text[] InfoText;
 
+    [HideInInspector]
     private int score;
     public static int gainedScore; 
     string timeText;
@@ -49,16 +51,6 @@ public class QuizManager : MonoBehaviour, IDataPersistence
         SelectRandomQuestions();
         GenerateQuestion();
     }
-    private void Update()
-    {
-        Debug.Log("Score: " + GameData.levelScore);
-    }
-
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void GameOver()
     {
         QuizPanel.SetActive(false);
@@ -70,7 +62,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
         {
             LevelCompletedPanel.SetActive(true);
         }
-
+        // If game completed successfully, check score and change medals color...
         if(LevelCompletedPanel.activeSelf) 
         {
             if(GameData.levelScore < 300) 
@@ -99,7 +91,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
                 medals[2].sprite = gold;
             }
         }
-
+        // Stop Game Time when game is finished.
         ScoreTimer.isTimeRunning = false;
         for (int i = 0; i < InfoText.Length; i++)
         {
@@ -116,7 +108,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     public void Correct()
     {
-        // when your answer is right
+        // When your answer is right
         score += 1;
         gainedScore += 100;
         GameData.levelScore += 100;
@@ -126,7 +118,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     public void Wrong()
     {
-        // when your answer is wrong
+        // When your answer is wrong
         gainedScore -= 50;
         GameData.levelScore -= 50;
         selectedQuestions.RemoveAt(currentQuestion);
@@ -141,8 +133,10 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     void SetAnswers()
     {
+        // Setting answers as options length...
         for (int i = 0; i < options.Length; i++)
         {
+            // Defining starting sprites all options...
             options[i].GetComponent<Image>().sprite = options[i].GetComponent<AnswerScript>().StartSprite;
             options[i].GetComponent<AnswerScript>().isCorrect = false;
             options[i].transform.GetChild(1).GetComponent<TMP_Text>().text = selectedQuestions[currentQuestion].Answers[i];
@@ -156,6 +150,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     void GenerateQuestion()
     {
+        // If question count is bigger than 0, generate questions randomly. 
         if (selectedQuestions.Count() > 0)
         {
             currentQuestion = UnityEngine.Random.Range(0, selectedQuestions.Count);
@@ -172,10 +167,11 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     void ReadQuestions()
     {
+        // Read data from CSV table...
         string[] data = textAssetData.text.Split(new string[] { ";", "\n" }, StringSplitOptions.None);
 
         int tableSize = data.Length / 6 - 1;
-
+        // Add questions in list 1-1...
         questionLists.questions = new List<QuestionAndAnswers>();
         for (int i = 0; i < tableSize; i++)
         {
@@ -197,6 +193,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     void SelectRandomQuestions()
     {
+        // Select random question and showing on screen...
         if (questionLists.questions.Count <= maxQuestions)
         {
             // If the number of available questions is less than or equal to the maximum number of questions required, use all the available questions

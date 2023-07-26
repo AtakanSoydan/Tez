@@ -82,6 +82,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.LoadData(gameData);
         }
 
+        Debug.Log("Level Score: " + gameData.levelScore2);
     }
     public void SaveGame()
     {

@@ -21,6 +21,7 @@ public class Score : MonoBehaviour, IDataPersistence
     private bool takenInfo = false;
     private void OnTriggerEnter(Collider other)
     {
+        //If game object detected Player tag, boolen value return true...
         if (other.gameObject.CompareTag("Player"))
         {
             takenInfo = true;
@@ -29,12 +30,13 @@ public class Score : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        // Define loaded data...
+        // Define and showing loaded data...
         if(tagName == "")
         {
             gameObject.tag = "Ground";
         }
         gameObject.tag = tagName;
+        //UI sprites and texts loading on start...
         infoScoreText.text = GameData.collectedInfo.ToString();
         if (GameData.collectedInfo >= 4)
         {
@@ -49,13 +51,13 @@ public class Score : MonoBehaviour, IDataPersistence
     {
         if (takenInfo && Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Ground") && GameData.collectedInfo < 7)
         {
-            //Debug.Log("collected info arttýrýlmadan önce: " + GameData.collectedInfo);
+            //Updating GameData class objects...
             GameData.collectedInfo++;
             GameData.levelScore += 100;
-            //Debug.Log("Local Score: " + GameData.levelScore);
+            //Show on UI our datas...
             infoScoreText.text = GameData.collectedInfo.ToString();
             progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
-            //Debug.Log("collected info arttýrýldýktan sonra: " + GameData.collectedInfo);
+            //Change layer of gameObject.
             tagName = "Collected";
             gameObject.tag = tagName;
             
@@ -71,7 +73,8 @@ public class Score : MonoBehaviour, IDataPersistence
         }
         else
         {
-            //Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
+            Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
+            Debug.Log("Level Score on Exploration Chapter");
         }
         
     }

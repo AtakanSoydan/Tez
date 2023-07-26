@@ -8,10 +8,12 @@ public class ScoreTimer : MonoBehaviour
     public TextMeshProUGUI timer;
     public static float currentTime = 0f;
     public static bool isTimeRunning;
-    private int scorePenalty = 10;
     private float penaltyCounter = 0f;
-    private float penaltyThread = 60f;
-    public int targetScene = 1;
+
+    [Header("Score Penalty")]
+    public int scorePenalty = 10;
+    public float penaltyThread = 60f;
+    public int[] targetScenes = {2,3};
     int currentScene;
     private void Start()
     {
@@ -29,12 +31,17 @@ public class ScoreTimer : MonoBehaviour
                 DisplayTime(currentTime);
                 //Her 15 saniyede bir score azalsýn...
                 penaltyCounter += Time.deltaTime;
-                if (targetScene == currentScene)
+                Debug.Log("Current Scene" + currentScene);
+                for (int i = 0; i < targetScenes.Length; i++)
                 {
-                    if (penaltyCounter >= penaltyThread)
+                    Debug.Log("Target Scene" + targetScenes[i]);
+                    if (targetScenes[i] == currentScene)
                     {
-                        CalculatePenaltyScore();
-                        penaltyCounter = 0f;
+                        if (penaltyCounter >= penaltyThread)
+                        {
+                            CalculatePenaltyScore();
+                            penaltyCounter = 0f;
+                        }
                     }
                 }
             }
