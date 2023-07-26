@@ -29,7 +29,7 @@ public class GameData
     {
         collectedInfo2 = 0;
         levelScore2 = 0;
-        playerPosition = Vector3.zero;
         collectedInfos = new SerializableDictionary<string, string>();
+        playerPosition = Vector3.zero;
     }
 }

@@ -22,19 +22,16 @@ public class SceneManagament : MonoBehaviour
     private void NextLevel()
     { 
         _compLevel++;
-        Debug.Log("Level Completed Count: " + _compLevel);
         SceneManager.LoadScene(_compLevel);
         Time.timeScale = 1.0f;
         
     }
     public void RestartLevel()
     {
-        Debug.Log("Level Completed Count: " + _compLevel);
-        SceneManager.LoadScene(_compLevel);
-        GameData.collectedInfo = 0;
-        GameData.levelScore = 0;
         ScoreTimer.currentTime = 0f;
         Time.timeScale = 1.0f;
+        DataPersistenceManager.instance.NewGame();
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
