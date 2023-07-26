@@ -32,7 +32,7 @@ public class SceneManagament : MonoBehaviour
         ScoreTimer.currentTime = 0f;
         Time.timeScale = 1.0f;
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadSceneAsync(DataPersistenceManager.instance.GetSavedSceneName());
     }
 
     public void MainMenu()
