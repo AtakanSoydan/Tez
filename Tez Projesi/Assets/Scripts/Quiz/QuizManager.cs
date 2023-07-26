@@ -81,6 +81,11 @@ public class QuizManager : MonoBehaviour, IDataPersistence
                     medals[i].sprite = grey;
                 }
             }
+
+            else if (GameData.levelScore >= 300 && GameData.levelScore < 700)
+            {
+                medals[0].sprite = bronze;
+            }
         }
 
         ScoreTimer.isTimeRunning = false;

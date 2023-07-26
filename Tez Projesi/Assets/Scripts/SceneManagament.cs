@@ -33,6 +33,7 @@ public class SceneManagament : MonoBehaviour
         SceneManager.LoadScene(_compLevel);
         GameData.collectedInfo = 0;
         GameData.levelScore = 0;
+        ScoreTimer.currentTime = 0f;
         Time.timeScale = 1.0f;
     }
 
