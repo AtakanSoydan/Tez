@@ -8,9 +8,9 @@ public class ScoreTimer : MonoBehaviour
     public TextMeshProUGUI timer;
     public static float currentTime = 0f;
     public static bool isTimeRunning;
-    private int scorePenalty = 5;
+    private int scorePenalty = 10;
     private float penaltyCounter = 0f;
-    private float penaltyThread = 15f;
+    private float penaltyThread = 60f;
     public int targetScene = 1;
     int currentScene;
     private void Start()

@@ -28,7 +28,6 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     private int score;
     public static int gainedScore; 
-    private int timeNow;
     string timeText;
 
     [Serializable]
@@ -44,7 +43,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        //GameOverPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
         LevelCompletedPanel.SetActive(false);
         ReadQuestions();
         SelectRandomQuestions();
@@ -52,7 +51,6 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     }
     private void Update()
     {
-        timeNow = (int)ScoreTimer.currentTime;
         Debug.Log("Score: " + GameData.levelScore);
     }
 
@@ -82,9 +80,22 @@ public class QuizManager : MonoBehaviour, IDataPersistence
                 }
             }
 
-            else if (GameData.levelScore >= 300 && GameData.levelScore < 700)
+            else if (GameData.levelScore >= 300 && GameData.levelScore < 500)
             {
                 medals[0].sprite = bronze;
+            }
+
+            else if (GameData.levelScore >= 500 && GameData.levelScore < 700)
+            {
+                medals[0].sprite = bronze;
+                medals[1].sprite = silver;
+            }
+
+            else if (GameData.levelScore >= 700)
+            {
+                medals[0].sprite = bronze;
+                medals[1].sprite = silver;
+                medals[2].sprite = gold;
             }
         }
 
@@ -92,7 +103,11 @@ public class QuizManager : MonoBehaviour, IDataPersistence
         for (int i = 0; i < InfoText.Length; i++)
         {
             InfoText[i].text = "Level Score: " + GameData.levelScore.ToString() + "\n"
-                + "Time: " + DisplayTime(ScoreTimer.currentTime);
+                + "Time: " + DisplayTime(ScoreTimer.currentTime) + "\n" 
+                + "Collected Info: " + GameData.collectedInfo + "\n" 
+                + "Correct Answers: " + score + "\n"
+                + "Wrong Answers: " + (maxQuestions - score);
+
         }
     }
 
@@ -195,7 +210,8 @@ public class QuizManager : MonoBehaviour, IDataPersistence
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        return timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+        return timeText;
     }
 
     public void LoadData(GameData gameData)
