@@ -21,13 +21,15 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("1. Bölüm");
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync("Cinematic");
     }
 
     public void OnPressContinueGame()
     {
         DisableMenuButtons();
-        SceneManager.LoadSceneAsync("1. Bölüm");
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync(DataPersistenceManager.instance.GetSavedSceneName());
     }
 
     public void QuitGame()

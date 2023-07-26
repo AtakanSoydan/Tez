@@ -36,7 +36,7 @@ public class Score : MonoBehaviour, IDataPersistence
         }
         gameObject.tag = tagName;
         infoScoreText.text = GameData.collectedInfo.ToString();
-        if (GameData.collectedInfo == 4)
+        if (GameData.collectedInfo >= 4)
         {
             testButtonActivation.SetActive(true);
         }
@@ -51,7 +51,7 @@ public class Score : MonoBehaviour, IDataPersistence
         {
             //Debug.Log("collected info arttýrýlmadan önce: " + GameData.collectedInfo);
             GameData.collectedInfo++;
-            GameData.levelScore += 75;
+            GameData.levelScore += 100;
             //Debug.Log("Local Score: " + GameData.levelScore);
             infoScoreText.text = GameData.collectedInfo.ToString();
             progressBarGreen.transform.GetChild(GameData.collectedInfo - 1).gameObject.SetActive(true);
@@ -59,7 +59,7 @@ public class Score : MonoBehaviour, IDataPersistence
             tagName = "Collected";
             gameObject.tag = tagName;
             
-            if (GameData.collectedInfo == 4)
+            if (GameData.collectedInfo >= 4)
             {
                 testButtonActivation.SetActive(true);
             }
@@ -71,7 +71,7 @@ public class Score : MonoBehaviour, IDataPersistence
         }
         else
         {
-            Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
+            //Debug.Log("Toplanan tüm info: " + GameData.collectedInfo);
         }
         
     }

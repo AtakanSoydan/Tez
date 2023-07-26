@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512da85e335d0c479598a7283cd3a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initializeDataIfNull: 1
-  fileName: Atakan
+  initializeDataIfNull: 0
+  fileName: 2

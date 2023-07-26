@@ -15,14 +15,15 @@ public class SceneManagament : MonoBehaviour
     }
 
     public void LoadTestScene()
-    { 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    {
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void NextLevel()
     { 
         _compLevel++;
-        SceneManager.LoadScene(_compLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + _compLevel);
         Time.timeScale = 1.0f;
         
     }
@@ -72,8 +73,8 @@ public class SceneManagament : MonoBehaviour
 
     public void BackToMainScene()
     {
-        GameData.levelScore -= QuizManager.gainedScore;
-        SceneManager.LoadScene(0);
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 
 }

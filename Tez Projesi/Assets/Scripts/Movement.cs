@@ -66,19 +66,11 @@ public class Movement : MonoBehaviour, IDataPersistence
     }
     public void LoadData(GameData gameData)
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            this.transform.position = gameData.playerPosition;
-        }
-        else{ return;}
+        this.transform.position = gameData.playerPosition;   
     }
 
     public void SaveData(ref GameData gameData)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            this.transform.position = gameData.playerPosition;
-        }
-        else{ return;}
+      this.transform.position = gameData.playerPosition;
     }
 }

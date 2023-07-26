@@ -35,16 +35,17 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("OnEnable");
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     private void OnDisable()
     {
+        Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
-
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Loaded called!");
@@ -54,9 +55,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
-        Debug.Log("Unloaded called!");
+        Debug.Log("Unloaded Called!");
         SaveGame();
     }
+
 
     public void NewGame()
     {
@@ -88,6 +90,18 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
 
+        Scene sceneName = SceneManager.GetActiveScene();
+
+        if(!sceneName.name.Equals("Main Menu"))
+        {
+            if (!sceneName.name.Equals("Cinematic"))
+            {
+                if (!sceneName.name.Equals("Quiz Scene"))
+                { 
+                    gameData.currentSceneName = sceneName.name;
+                }
+            }
+        }
         //if we don't have any data to save, Log warning here
         if(this.gameData == null)
         {
@@ -101,6 +115,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         // Save game data to a file using data handler...
         dataHandler.Save(gameData);
+        Debug.Log("Data Saved!");
     }
 
     private void OnApplicationQuit()
@@ -118,5 +133,15 @@ public class DataPersistenceManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    public string GetSavedSceneName()
+    {
+        if(gameData == null)
+        {
+            Debug.LogError("Try tý get scene name but data was null!");
+            return null;
+        }
+        return gameData.currentSceneName;
     }
 }

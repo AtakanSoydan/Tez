@@ -70,6 +70,7 @@ public class QuizManager : MonoBehaviour, IDataPersistence
         {
             LevelCompletedPanel.SetActive(true);
         }
+
         if(LevelCompletedPanel.activeSelf) 
         {
             if(GameData.levelScore < 300) 
@@ -109,6 +110,8 @@ public class QuizManager : MonoBehaviour, IDataPersistence
                 + "Wrong Answers: " + (maxQuestions - score);
 
         }
+
+        GameData.levelScore -= gainedScore;
     }
 
     public void Correct()

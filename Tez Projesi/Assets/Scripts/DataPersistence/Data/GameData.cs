@@ -23,6 +23,8 @@ public class GameData
     public Vector3 playerPosition;
     // Collected data 'tag'leri için bir dictionary oluþturuyoruz..
     public SerializableDictionary<string, string> collectedInfos;
+    // Current scene name.
+    public string currentSceneName;
     
 
     public GameData() 
@@ -31,5 +33,6 @@ public class GameData
         levelScore2 = 0;
         collectedInfos = new SerializableDictionary<string, string>();
         playerPosition = Vector3.zero;
+        currentSceneName = "";
     }
 }
