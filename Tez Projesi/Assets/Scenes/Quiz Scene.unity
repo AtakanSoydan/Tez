@@ -4666,7 +4666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 739727102}
-  targetScene: 1
+  scorePenalty: 10
+  penaltyThread: 60
+  targetScenes: 0200000003000000
 --- !u!1 &1952243625
 GameObject:
   m_ObjectHideFlags: 0
